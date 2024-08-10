@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>i-Remote</title>
+
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous" />-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+    <link href="./assets/css" rel="stylesheet"><link rel="stylesheet" href="./assets/baguetteBox.min.css"><link rel="stylesheet" href="./assets/fluid-gallery.css"><link rel="stylesheet" media="screen" href="./assets/bootstrap.min.css">
+    <script type="text/javascript" src="./assets/iSPY.js"></script>
+    <script type="text/javascript">
+        var myChatRoomId;
+        var parentWin;
+        function OpenChatRoom(chatRoomId, chatRoomPass, blnOn) {
+            if (blnOn == "1") {
+                parentWin = window;
+                //myChatRoomId = window.open("https://www.talk.gg/" + chatRoomPass, chatRoomId, "width=220,height=150;scrollbars=no;toolbar=no");
+                myChatRoomId = window.open(chatRoomPass, chatRoomId, "width=800,height=600;scrollbars=no;toolbar=no");
+            }
+            else
+                myChatRoomId.close();   // Closes the new window
+        }
+
+        function NoRefillAfter8PM(chatRoomId) {
+            alert("No refill tonic water after 8PM. Thanks");
+        }
+
+        function NoCustomerServiceAfter8PM(chatRoomId) {
+            alert("Customer Service off after 8PM. You may contact nurse. Thanks");
+        }
+
+        function SnapshotCam(strAuth, camID)
+        {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert("Nice shot!")
+                }
+            };
+            xhttp.open("GET", "/ImageProxy.ashx?url=http://apcare.ddns.net:8090/snapshot%3Fot=2%26oid=" + camID + "%26Auth=" + strAuth, true);
+            xhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <form method="post" action="http://tg25.iremote.my/" id="frmClickAlert">
+<div class="aspNetHidden">
+
+
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['frmClickAlert'];
+if (!theForm) {
+    theForm = document.frmClickAlert;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./assets/WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./assets/ScriptResource.axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="./assets/ScriptResource(1).axd" type="text/javascript"></script>
+<script src="./assets/ScriptResource(2).axd" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	
+	
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'frmClickAlert', [], ['Timer1','Timer1'], [], 90, '');
+//]]>
+</script>
+
+    <span id="Timer1" style=""></span>
+    <center>
+        <div id="divRemoteControl">
+            <table style="width:100%;text-align:center;display:none;" border="0">
+                <tbody><tr>
+                    <td style="width:33%;text-align:right;"><input type="submit" name="btn_iRemote" value="i-Remote" id="btn_iRemote">&nbsp;</td>
+                    <td style="width:33%;text-align:center;">&nbsp;<input type="submit" name="btn_CCTV" value="BB-Camera" id="btn_CCTV"></td>
+                    <td style="width:34%;text-align:left;">&nbsp;<input type="submit" name="btn_Images" value="Images" id="btn_Images"></td>
+                </tr>
+            </tbody></table>
+            
+                    <div class="d-inline-block border border-primary"><div id="divCamera"><img src="http://tg25.iremote.my/ImageProxy.ashx?url=http%3A%2F%2Fapcare.ddns.net%3A8090%2Flivefeed%3Foid%3D8%26Auth%3D11a15741-b83f-46e7-9314-195d58d8dfbe%26size%3D360x640&amp;r=0.9544830953853765" onerror="iSpyErrorThumb(this)" onload="iSpyGetNextFrame(this,1000,0)" id="iSPY_Cam8">
+<br><input type="button" onclick="javascript: SnapshotCam(&#39;11a15741-b83f-46e7-9314-195d58d8dfbe&#39;,8);"style="display:none;" value="Snapshot" id="iSnapshot_Cam8"><!--#CotName#Cot-8_8#CotName#--><!--#Auth#11a15741-b83f-46e7-9314-195d58d8dfbe#Auth#--></div></div>
+                    
+                
+        </div>
+        
+    </center>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.add_init(function() {
+    $create(Sys.UI._Timer, {"enabled":true,"interval":5000,"uniqueID":"Timer1"}, null, null, $get("Timer1"));
+});
+//]]>
+</script>
+<span style="display: none !important;"><input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value=""></span><span style="display: none !important;"><input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value=""></span><span style="display: none !important;"><input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="Px62D1gPU0ro9qIFl58SUzASSmUutbHGce9EJ+5LUhSPf95aUbDmjJbBV7JdiTHQVTc5zjH2J+8qDuBBET1ejyrXMXBXpT9XS1A8B2CGmgxkDQMK1x8wv2JoR9MetANbhll/QsAlmpio3qqcjzDeIjDhJPdznGi4crqwZ/pQP/QlKgwIxF90T2etPqld5BLTYF9SSx1NE0s7rYjDNN2Hsp7aw+PiVE4Mps+tWg71R6+aKK5gUWwAZGpBQ15WhbbSzrPE+du+NOcXoOZzKsBez5j7QwP/oei9wtNCxHkURaP8bmaa+M5bHgyh0X50ZZKRhHB+YTo1sYirYJzinP12wRqpoCWikDL4U3v8jh5nNoDFRWR6FXlHzv3oR6XopE6p7KNtoAR8BinbQZMEoUyZIc216NnR5dvm+3TrS1poNfiIPLE+07RIK+6U6PPWjx+VBl+vwvDjJ/zW/LnQLKp5b3QhJrv9qMgDN+f33JA0IQrkOiUQ3V6U71fn1yaEWUisxfKh/27DxmbZ6otkA9Zx3NsgBjHJPQDk05XbhjxvMTRRPRKWJCvnlbS27lEzfdgzHcuxdpbTYpX5tf1pqyphrd2BWSp1OEZ2WssTK/igYDWlzzluprlTvvEFYKU6tDOAt1H2qdPJH1UjdOHXNxrW9rUQ7EhGq6jstypuE9LJHMQ784ltx1IlfC9cBjchAXnNDnlPEnF8Vbm0YErDjSwHWmoK75zfj+opmFiWTkJGpr2PmLpTCPNtXM8tsejTk/hw898nRxseiugtMrnjJuizv1W7Pn6qMGsdYPa2aXkKuXiMZ3fm4+NXRoveQlxD4CjbvXvWsPRQpLQgnE0aS6eGDvWukjXTtzr6fpz/0PBk0ZiOvpwOGRePWFnGgw5Sgxy+rHiiaAFnkV2Vtf9xARVkrvC9Omw6bdrH23WI4JpkMpv0V/oCFWy1zUo3RUgMurhmb/aroN4ZrAx9ogKToanrrbUcPltLvk/IL6Ki9b98la1lmRLzTr34kKtHW+8J1a+GPqL52FqEyBvK9AxZuSimsmjOfUkwdHwG2bUA+eewYu7eQU3mjb/EQpOYUeXUjw+MnrMGgwvKcC5YmPzuZBqunOT2OQND3hS5UIMW9nQi6rYr/lGQJna5QCtD39oQkdWALY0UqvP/s/YZC1/Y++Bih5wAys1JuzzWdQ1LWQn+ZYyxKjBo5dWjkGVVcClZJ1KczU0AhuJ8J+ncDW0bYEaJGNh+CbvlPCHVWqbRMBlkYygZYBLrmfjg74Bty80kDQjU0YxYA9INShABnsagytMM3OJj2xC242tA8FT9QDUbzpa/7Di5NL2JKwEP/F63zeKV"></span><span style="display: none !important;"><input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334"></span><span style="display: none !important;"><input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="GIGNNT+hOC7SVY6zV7hqc/SB0+wdi6Oa5v0KilMIqNCqNfgMT2C4Sh3sKVhVgw5cnBc+CyGzAYLOwLK+8MZlmcaJ8FR4IomjN+A1ZEb2JF61Vig/qwgb0y11WYye1uh/+cMqzKdrD5VXoi8ploQXxtWAt722Fn4lIlMwq1swCDk="></span></form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./assets/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="./assets/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>-->
+
+
+</body></html>
